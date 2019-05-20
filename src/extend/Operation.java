@@ -40,7 +40,7 @@ public class Operation {
         Statement state = mysql.getStatement();
         try {
             int reply = state.executeUpdate(sqlCode);
-            if (reply == 1) 
+            if (reply >= 1) 
                 result = true;
             else 
                 result = false;
@@ -67,7 +67,7 @@ public class Operation {
         try {
             for (String setence : sqlCodes){
                 reply = state.executeUpdate(setence);
-                if (reply == 1) result ++;
+                result += reply;
             }
             
         } catch (SQLException e) {
